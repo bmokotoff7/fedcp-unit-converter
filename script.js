@@ -6,11 +6,17 @@ const volumeConversionEl = document.getElementById("volume-conversion")
 const massConversionEl = document.getElementById("mass-conversion")
 
 /* Used for styling (light and dark modes) */
-let currentTheme = "light"
 const themeBtn = document.getElementById("theme-btn")
 const conversionCards = document.querySelectorAll(".conversion-card")
 const conversionHeadingEl = document.querySelectorAll(".conversion-heading")
 const conversionDataEl = document.querySelectorAll(".conversion-data")
+let currentTheme = "light"
+const themeFromLocalStorage = localStorage.getItem("currentTheme")
+
+if (themeFromLocalStorage) {
+    currentTheme = themeFromLocalStorage
+    setThemeOnStartup()
+}
 
 convertBtn.addEventListener("click", function() {
     convert(numberInputEl.textContent)
@@ -83,9 +89,20 @@ themeBtn.addEventListener("click", function() {
     }
 })
 
+/* Sets the page theme on startup */
+function setThemeOnStartup() {
+    if (currentTheme === "light") {
+        setLightMode()
+    }
+    else if (currentTheme === "dark") {
+        setDarkMode()
+    }
+}
+
 /* Set light mode. Theme will persist upon refreshing/relaunching page. */
 function setLightMode() {
     currentTheme = "light"
+    localStorage.setItem("currentTheme", "light")
     document.body.style.background = "#F4F4F4"
     conversionCards.forEach(card => {
         card.style.background = "white";
@@ -104,6 +121,7 @@ function setLightMode() {
 /* Set dark mode. Theme will persist upon refreshing/relaunching page. */
 function setDarkMode() {
     currentTheme = "dark"
+    localStorage.setItem("currentTheme", "dark")
     document.body.style.background = "#1F2937";
     conversionCards.forEach(card => {
         card.style.background = "#273549";
