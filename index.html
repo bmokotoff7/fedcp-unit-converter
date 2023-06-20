@@ -2,8 +2,30 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id="heading-section">
+            <h1 id="heading-title">Metric/Imperial Unit Conversion</h1>
+            <p><span id="number-input" contenteditable>0</span></p>
+            <button id="convert-btn">Convert</button>
+        </div>
+        <div id="conversion-section">
+            <div class="conversion-card">
+                <h2 class="conversion-heading">Length (Meter/Feet)</h2>
+                <p class="conversion-data" id="length-conversion">0 meters = 0 feet | 0 feet = 0 meters</p>
+            </div>
+            <div class="conversion-card">
+                <h2 class="conversion-heading">Volume (Liters/Gallons)</h2>
+                <p class="conversion-data" id="volume-conversion">0 liters = 0 gallons | 0 gallons = 0 liters</p>
+            </div>
+            <div class="conversion-card">
+                <h2 class="conversion-heading">Mass (Kilograms/Pounds)</h2>
+                <p class="conversion-data" id="mass-conversion">0 kilos = 0 pounds | 0 pounds = 0 kilos</p>
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
