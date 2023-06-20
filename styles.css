@@ -19,10 +19,12 @@ body {
 }
 
 #number-input {
-    margin: 10px auto;
+    margin: 10px 40px;
     padding: 8px 16px;
     height: 85px;
     min-width: 100px;
+    max-width: 90vw;
+    overflow: scroll;
     border: 2px solid #B295FF;
     border-radius: 5px;
     text-align: center;
