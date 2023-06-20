@@ -20,8 +20,9 @@ body {
 
 #number-input {
     margin: 10px auto;
-    padding: 18px 30px 0;
+    padding: 8px 16px;
     height: 85px;
+    min-width: 100px;
     border: 2px solid #B295FF;
     border-radius: 5px;
     text-align: center;
@@ -29,6 +30,8 @@ body {
     font-size: 42pt;
     caret-color: transparent;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 span:focus {
