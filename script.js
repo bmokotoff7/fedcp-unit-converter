@@ -1,12 +1,16 @@
-// 1 meter = 3.281 feet
-// 1 liter = 0.264 gallon
-// 1 kilogram = 2.204 pound
-
+/* Used for conversion and app functionality */
 const numberInputEl = document.getElementById("number-input")
 const convertBtn = document.getElementById("convert-btn")
 const lengthConversionEl = document.getElementById("length-conversion")
 const volumeConversionEl = document.getElementById("volume-conversion")
 const massConversionEl = document.getElementById("mass-conversion")
+
+/* Used for styling (light and dark modes) */
+let currentTheme = "light"
+const themeBtn = document.getElementById("theme-btn")
+const conversionCards = document.querySelectorAll(".conversion-card")
+const conversionHeadingEl = document.querySelectorAll(".conversion-heading")
+const conversionDataEl = document.querySelectorAll(".conversion-data")
 
 convertBtn.addEventListener("click", function() {
     convert(numberInputEl.textContent)
@@ -70,7 +74,47 @@ numberInputEl.addEventListener("dblclick", function() {
     numberInputEl.textContent = ""
 })
 
+themeBtn.addEventListener("click", function() {
+    if (currentTheme === "light") {
+        setDarkMode()
+    }
+    else if (currentTheme === "dark") {
+        setLightMode()
+    }
+})
+
 /* Set light mode. Theme will persist upon refreshing/relaunching page. */
-function setLightMode()
+function setLightMode() {
+    currentTheme = "light"
+    document.body.style.background = "#F4F4F4"
+    conversionCards.forEach(card => {
+        card.style.background = "white";
+    })
+    conversionHeadingEl.forEach(heading => {
+        heading.style.color = "#5A537B";
+    })
+    conversionDataEl.forEach(data => {
+        data.style.color = "#353535"; 
+    })
+    themeBtn.style.color = "#3D3D3D"
+    themeBtn.style.background = "white"
+    themeBtn.textContent = "Switch to Dark Mode"
+}
 
 /* Set dark mode. Theme will persist upon refreshing/relaunching page. */
+function setDarkMode() {
+    currentTheme = "dark"
+    document.body.style.background = "#1F2937";
+    conversionCards.forEach(card => {
+        card.style.background = "#273549";
+    })
+    conversionHeadingEl.forEach(heading => {
+        heading.style.color = "#CCC1FF";
+    })
+    conversionDataEl.forEach(data => {
+        data.style.color = "white"; 
+    })
+    themeBtn.style.color = "white"
+    themeBtn.style.background = "#273549"
+    themeBtn.textContent = "Switch to Light Mode"
+}
